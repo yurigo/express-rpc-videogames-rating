@@ -28,7 +28,42 @@ async function get(req, res, next) {
 }
 
 async function add(req, res, next) {
-  return next({ error: "not implemented yet" });
+  const obj = {
+    login: req.params.login,
+    name: req.params.name,
+    password: "xxx",
+  };
+
+  try {
+    const [resultado] = await conn
+      .promise()
+      .query("INSERT INTO users SET ?", obj);
+
+    obj.id = resultado.insertId;
+    delete obj.password;
+
+    return res.json(obj);
+  } catch (ex) {
+    return next(ex);
+  }
 }
 
-module.exports = { all, get, add };
+async function deleteUser(req, res, next) {
+  var idUser = req.params.id;
+
+  try {
+    const [resultado2] = await conn
+      .promise()
+      .query("DELETE FROM scores WHERE user = ?", idUser);
+
+    const [resultado] = await conn
+      .promise()
+      .query("DELETE FROM users WHERE id = ?", idUser);
+
+    return res.json(resultado);
+  } catch (ex) {
+    return next(ex);
+  }
+}
+
+module.exports = { all, get, add, deleteUser };

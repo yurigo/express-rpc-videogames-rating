@@ -10,6 +10,7 @@ router.get("/async/await/all", c.all);
 
 router.get("/all", c.all);
 router.get("/get/:id", c.get);
-router.get("/add", c.add);
+router.get("/add/:login/:name", c.add);
+router.get("/delete/:id", c.deleteUser);
 
 module.exports = router;

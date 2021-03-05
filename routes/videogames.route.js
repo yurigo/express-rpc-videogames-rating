@@ -6,5 +6,6 @@ router.get("/get/:id", c.get);
 router.get("/all", c.all);
 router.get("/add/:name", c.add);
 router.get("/load", c.load);
+router.get("/delete/:id", c.deleteGame);
 
 module.exports = router;

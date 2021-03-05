@@ -50,17 +50,15 @@ Obtiene un usuario con id = ID.
 
 Utility para cargar en base de datos los videojuegos que se encuentran en mock.js
 
-## TODO
+### Fallback para retornar un error si el endpoint no existe.
+
+Si un endpoint no existe debemos mostrar algún tipo de error.
 
 ### USERS
 
 #### `GET /api/users/add/LOGIN/NOMBRE`
 
 Añade un usuario a la base de datos
-
-#### `GET /api/users/del/ID`
-
-Borra un usuario a la base de datos
 
 ### VIDEOGAMES
 
@@ -76,19 +74,21 @@ Obtiene un videojuego con id = ID
 
 Añade un videojuego a la base de datos
 
+#### `GET /api/users/del/ID`
+
+Borra un usuario a la base de datos
+
 #### `GET /api/videogames/del/ID`
 
 Borra un videojuego a la base de datos
 
-### PUNCTUATION
+## TODO
 
-#### `GET /api/users/ID_USER/puntua/ID_VIDEOJUEGO/PUNTUACION`
+### SCORE
+
+#### `GET /api/puntua/ID_USER/ID_VIDEOJUEGO/PUNTUACION`
 
 El usuario ID_USER puntua el ID_VIDEOJUEGO con la puntuación PUNTUACIÓN
-
-### Fallback para retornar un error si el endpoint no existe.
-
-Si un endpoint no existe debemos mostrar algún tipo de error.
 
 ### Modificar el objeto que devuelven los endpoints
 
@@ -120,3 +120,5 @@ Si un endpoint no existe debemos mostrar algún tipo de error.
     ]
 }
 ```
+
+#### Filtros ?

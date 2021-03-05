@@ -1,10 +1,10 @@
-const router = require("express").Router()
+const router = require("express").Router();
 
-const c = require("../controller/videogames.controller")
+const c = require("../controller/videogames.controller");
 
-router.get('/get/:id', c.get);
-router.get('/all', c.all);
-router.get('/add/:name', c.add);
-router.get('/load', c.load);
+router.get("/get/:id", c.get);
+router.get("/all", c.all);
+router.get("/add/:name", c.add);
+router.get("/load", c.load);
 
 module.exports = router;

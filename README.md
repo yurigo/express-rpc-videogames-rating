@@ -1,72 +1,97 @@
 # VIDEOGAMES
+
 ## Introducción
 
+Servicio web en node + express que obtiene datos de una base de datos en mysql
+
 ## Dependencias
-# mysql2 (mysql)
+
+### express
+
+- https://www.npmjs.com/package/express
+
+### mysql2 (mysql)
+
 - https://www.npmjs.com/package/mysql2
 - https://www.npmjs.com/package/mysql
 
-# .env(dotenv)
+### .env(dotenv)
+
 - https://www.npmjs.com/package/dotenv
 
+## .gitignore
 
-# Gitingnore
 - http://gitignore.io
-
-`.env` se excluye del repositorio y no está versionado.  No obstante se suele dejar un `.env.sample` para conocer las variables de entorno.
+  `.env` se excluye del repositorio y no está versionado. No obstante se suele dejar un `.env.sample` para conocer las variables de entorno.
 
 ## Enpoints
 
 ### `GET /api/users/all`
+
 Obtiene todos los usuarios de la base de datos.
 
 > #### `GET api/callback/all`
+>
 > Ejemplo de una llamada a mysql2 con callbacks
 
 > #### `GET api/promise/all`
+>
 > Ejemplo de una llamada a mysql2 con promesas
 
 > #### `GET api/async/await/all`
+>
 > Ejemplo de una llamada a mysql2 con promesas vía async/await (la que se está utilizando en `/api/users/all`)
 
 ### `GET /api/users/get/ID`
+
 Obtiene un usuario con id = ID.
 
 ### `GET /api/videogames/load`
+
 Utility para cargar en base de datos los videojuegos que se encuentran en mock.js
 
 ## TODO
 
 ### USERS
+
 #### `GET /api/users/add/LOGIN/NOMBRE`
+
 Añade un usuario a la base de datos
 
 #### `GET /api/users/del/ID`
+
 Borra un usuario a la base de datos
 
 ### VIDEOGAMES
 
 #### `GET /api/videogames/all`
+
 Obtiene todos los videojuegos de la base de datos.
 
 #### `GET /api/videogames/get/ID`
+
 Obtiene un videojuego con id = ID
 
 #### `GET /api/videogames/add/NOMBRE`
+
 Añade un videojuego a la base de datos
 
 #### `GET /api/videogames/del/ID`
+
 Borra un videojuego a la base de datos
 
 ### PUNCTUATION
 
 #### `GET /api/users/ID_USER/puntua/ID_VIDEOJUEGO/PUNTUACION`
+
 El usuario ID_USER puntua el ID_VIDEOJUEGO con la puntuación PUNTUACIÓN
 
 ### Fallback para retornar un error si el endpoint no existe.
+
 Si un endpoint no existe debemos mostrar algún tipo de error.
 
 ### Modificar el objeto que devuelven los endpoints
+
 #### Usuario
 
 ```

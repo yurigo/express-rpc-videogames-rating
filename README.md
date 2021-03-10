@@ -26,73 +26,73 @@ Servicio web en node + express que obtiene datos de una base de datos en mysql
 
 ## Enpoints
 
-### `GET /api/users/all`
+### USERS
+
+#### ✔ `GET /api/users/all`
 
 Obtiene todos los usuarios de la base de datos.
 
-> #### `GET api/callback/all`
+> #### ✔ `GET api/callback/all`
 >
 > Ejemplo de una llamada a mysql2 con callbacks
 
-> #### `GET api/promise/all`
+> #### ✔ `GET api/promise/all`
 >
 > Ejemplo de una llamada a mysql2 con promesas
 
-> #### `GET api/async/await/all`
+> #### ✔ `GET api/async/await/all`
 >
 > Ejemplo de una llamada a mysql2 con promesas vía async/await (la que se está utilizando en `/api/users/all`)
 
-### `GET /api/users/get/ID`
+#### ✔ `GET /api/users/get/ID`
 
 Obtiene un usuario con id = ID.
 
-### `GET /api/videogames/load`
+#### ✔ `GET /api/users/del/ID`
 
-Utility para cargar en base de datos los videojuegos que se encuentran en mock.js
+Borra un usuario a la base de datos
 
-### Fallback para retornar un error si el endpoint no existe.
-
-Si un endpoint no existe debemos mostrar algún tipo de error.
-
-### USERS
-
-#### `GET /api/users/add/LOGIN/NOMBRE`
+#### ✔ `GET /api/users/add/LOGIN/NOMBRE`
 
 Añade un usuario a la base de datos
 
 ### VIDEOGAMES
 
-#### `GET /api/videogames/all`
+#### ✔ `GET /api/videogames/load`
+
+Utility para cargar en base de datos los videojuegos que se encuentran en mock.js
+
+#### ✔ `GET /api/videogames/all`
 
 Obtiene todos los videojuegos de la base de datos.
 
-#### `GET /api/videogames/get/ID`
+#### ✔ `GET /api/videogames/get/ID`
 
 Obtiene un videojuego con id = ID
 
-#### `GET /api/videogames/add/NOMBRE`
+#### ✔ `GET /api/videogames/add/NOMBRE`
 
 Añade un videojuego a la base de datos
 
-#### `GET /api/users/del/ID`
-
-Borra un usuario a la base de datos
-
-#### `GET /api/videogames/del/ID`
+#### ✔ `GET /api/videogames/del/ID`
 
 Borra un videojuego a la base de datos
 
-## TODO
-
 ### SCORE
 
-#### `GET /api/puntua/ID_USER/ID_VIDEOJUEGO/PUNTUACION`
+#### ❌`GET /api/puntua/ID_USER/ID_VIDEOJUEGO/PUNTUACION`
 
 El usuario ID_USER puntua el ID_VIDEOJUEGO con la puntuación PUNTUACIÓN
 
-### Modificar el objeto que devuelven los endpoints
+### OTROS
 
-#### Usuario
+#### ✔ Fallback para retornar un error si el endpoint no existe.
+
+Si un endpoint no existe debemos mostrar algún tipo de error.
+
+#### ❌Modificar el objeto que devuelven los endpoints
+
+##### ❌Usuario
 
 ```
 {
@@ -106,7 +106,7 @@ El usuario ID_USER puntua el ID_VIDEOJUEGO con la puntuación PUNTUACIÓN
 }
 ```
 
-#### Videogames
+##### ❌Videogames
 
 ```
 {
@@ -121,4 +121,14 @@ El usuario ID_USER puntua el ID_VIDEOJUEGO con la puntuación PUNTUACIÓN
 }
 ```
 
-#### Filtros ?
+##### ❌Paginación
+
+Habilitar la forma de poder paginar los resultados
+
+##### ❌Ordenación
+
+Habilitar la forma de poder ordenar los resultados
+
+##### ❌Filtros
+
+Habilitar la forma de poder filtrar los resultados

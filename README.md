@@ -114,22 +114,10 @@ Si un endpoint no existe debemos mostrar algún tipo de error.
     id: 1,
     name: "The Legend of Zelda: Ocarina of Time",
     score: 4,
-    votes: 3,
+    votes: 2,
     users: [
         { id: 1, name: "Alice", score: 5},
         { id: 4, name: "Dave", score: 3},
     ]
 }
 ```
-
-##### ❌Paginación
-
-Habilitar la forma de poder paginar los resultados
-
-##### ❌Ordenación
-
-Habilitar la forma de poder ordenar los resultados
-
-##### ❌Filtros
-
-Habilitar la forma de poder filtrar los resultados

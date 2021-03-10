@@ -41,4 +41,5 @@ app.listen(port, () => {
   console.log(`http://localhost:${port}/api/videogames/get/3`);
   console.log(`http://localhost:${port}/api/videogames/get/97`);
   console.log(`http://localhost:${port}/api/videogames/load`);
+  console.log(`http://localhost:${port}/api/scores/puntua/3/3/5`);
 });

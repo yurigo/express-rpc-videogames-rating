@@ -80,7 +80,7 @@ Borra un videojuego a la base de datos
 
 ### SCORE
 
-#### ❌`GET /api/puntua/ID_USER/ID_VIDEOJUEGO/PUNTUACION`
+#### ✔`GET /api/scores/puntua/ID_USER/ID_VIDEOJUEGO/PUNTUACION`
 
 El usuario ID_USER puntua el ID_VIDEOJUEGO con la puntuación PUNTUACIÓN
 

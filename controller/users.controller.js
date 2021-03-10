@@ -2,12 +2,27 @@ const { connection: conn } = require("../database/connection");
 
 async function all(req, res, next) {
   console.log("all users");
-  const [rows, fields] = await conn
+  const [users] = await conn
     .promise()
     .query(`SELECT id, login, name FROM users`);
-  if (rows.length === 0) return next({ status: 404, error: `users not found` });
-  //return res.json(rows.map(({ id, name }) => ({ id, name })));
-  return res.json(rows);
+  if (users.length === 0)
+    return next({ status: 404, error: `users not found` });
+
+  const [videogames] = await conn
+    .promise()
+    .query(
+      `select * from scores left join videogames on scores.videogame = videogames.id`
+    );
+
+  const result = users.map((e) => {
+    e.videogames = videogames
+      .filter((a) => a.user === e.id)
+      .map(({ user, videogame, ...agua }) => agua);
+    //.map(({ id, name, score }) => ({ id, name, score }));
+    return e;
+  });
+
+  return res.json(result);
 }
 
 async function get(req, res, next) {

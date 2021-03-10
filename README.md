@@ -96,8 +96,9 @@ Si un endpoint no existe debemos mostrar algún tipo de error.
 
 ```
 {
-    id: 4
-    name: "Alice"
+    id: 4,
+    login: alice,
+    name: "Alice",
     videogames: [
         { id: 1, name: "The Legend of Zelda: Ocarina of Time", score: 5},
         { id: 4, name: "Super Mario Galaxy", score: 5},
@@ -110,8 +111,8 @@ Si un endpoint no existe debemos mostrar algún tipo de error.
 
 ```
 {
-    id: 1
-    name: "The Legend of Zelda: Ocarina of Time"
+    id: 1,
+    name: "The Legend of Zelda: Ocarina of Time",
     score: 4,
     votes: 3,
     users: [

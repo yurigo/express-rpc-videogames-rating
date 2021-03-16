@@ -32,15 +32,15 @@ Servicio web en node + express que obtiene datos de una base de datos en mysql
 
 Obtiene todos los usuarios de la base de datos.
 
-> #### ✔ `GET api/callback/all`
+> #### ✔ `GET /api/callback/all`
 >
 > Ejemplo de una llamada a mysql2 con callbacks
 
-> #### ✔ `GET api/promise/all`
+> #### ✔ `GET /api/promise/all`
 >
 > Ejemplo de una llamada a mysql2 con promesas
 
-> #### ✔ `GET api/async/await/all`
+> #### ✔ `GET /api/async/await/all`
 >
 > Ejemplo de una llamada a mysql2 con promesas vía async/await (la que se está utilizando en `/api/users/all`)
 
@@ -80,7 +80,7 @@ Borra un videojuego a la base de datos
 
 ### SCORE
 
-#### ✔`GET /api/scores/puntua/ID_USER/ID_VIDEOJUEGO/PUNTUACION`
+#### ✔ `GET /api/scores/puntua/ID_USER/ID_VIDEOJUEGO/PUNTUACION`
 
 El usuario ID_USER puntua el ID_VIDEOJUEGO con la puntuación PUNTUACIÓN
 
@@ -94,6 +94,20 @@ Si un endpoint no existe debemos mostrar algún tipo de error.
 
 ##### ❌Usuario
 
+
+```
+id: int  //id del usuario
+login: string //login del usuario
+name: string //nombre del usuario
+videogames: array of videogameUser  //contendrá la información de videojuegos que ha puntuado el usuario
+
+videogameUser:
+  id: int //id del videojuego
+  name: string //nombre del videojuego
+  score: int  //puntuación del videojuego hecha por el usuario.
+```
+
+ejemplo:
 ```
 {
     id: 4,
@@ -107,8 +121,22 @@ Si un endpoint no existe debemos mostrar algún tipo de error.
 }
 ```
 
-##### ❌Videogames
+##### ❌Videogame
 
+```
+id: int //id del videojuego
+name: string //nombre del videojuego
+score: int //puntuación media del videojuego
+votes: int //número de puntuaciones recibidas
+users: array of userVideogame  //contendrá la información de usuarios que hayan votado al videojuego
+
+userVideogame:
+  id: int //id del usuario
+  name: string //nombre del usuario
+  score: int //puntuación del videojuego hecha por el usuario
+```
+
+ejemplo:
 ```
 {
     id: 1,
@@ -120,4 +148,61 @@ Si un endpoint no existe debemos mostrar algún tipo de error.
         { id: 4, name: "Dave", score: 3},
     ]
 }
+```
+
+# Resumen
+
+## Endpoints
+
+| Endpoint | Descripcion |
+| - | - |
+| `GET /api/users/all` |  Obtiene todos los usuarios de la base de datos.|
+| `GET /api/callback/all` |Ejemplo de una llamada a mysql2 con callbacks|
+| `GET /api/promise/all` | Ejemplo de una llamada a mysql2 con promesas|
+| `GET /api/async/await/all` |Ejemplo de una llamada a mysql2 con promesas vía async/await (la que se está utilizando en /api/users/all) |
+| `GET /api/users/get/ID` | Obtiene un usuario con id = ID. |
+| `GET /api/users/del/ID` | Borra un usuario a la base de datos |
+| `GET /api/users/add/LOGIN/NOMBRE` | Añade un usuario a la base de datos |
+| `GET /api/videogames/load` | Utility para cargar en base de datos los videojuegos que se encuentran en mock.js |
+| `GET /api/videogames/all` |Obtiene todos los videojuegos de la base de datos. |
+| `GET /api/videogames/get/ID` |Obtiene un videojuego con id = ID |
+| `GET /api/videogames/add/NOMBRE` | Añade un videojuego a la base de datos|
+| `GET /api/videogames/del/ID` | Borra un videojuego a la base de datos|
+| `GET /api/scores/puntua/ID_USER/ID_VIDEOJUEGO/PUNTUACION` | El usuario ID_USER puntua el ID_VIDEOJUEGO con la puntuación PUNTUACIÓN|
+| `ALL *` | Fallback para retornar un error si el endpoint no existe |
+
+
+<br>
+<br>
+<br>
+
+## Objetos
+
+### Usuario
+
+```
+id: int  //id del usuario
+login: string //login del usuario
+name: string //nombre del usuario
+videogames: array of videogameUser  //contendrá la información de videojuegos que ha puntuado el usuario
+
+videogameUser:
+  id: int //id del videojuego
+  name: string //nombre del videojuego
+  score: int  //puntuación del videojuego hecha por el usuario.
+```
+
+### Videogame
+
+```
+id: int //id del videojuego
+name: string //nombre del videojuego
+score: int //puntuación media del videojuego
+votes: int //número de puntuaciones recibidas
+users: array of userVideogame  //contendrá la información de usuarios que hayan votado al videojuego
+
+userVideogame:
+  id: int //id del usuario
+  name: string //nombre del usuario
+  score: int //puntuación del videojuego hecha por el usuario
 ```
